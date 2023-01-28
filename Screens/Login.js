@@ -1,14 +1,15 @@
-import { Button, View, TextInput } from 'react-native';
 import React, { useState } from 'react';
+import { Button, View, TextInput } from 'react-native';
 import auth from '@react-native-firebase/auth';
+import { useNavigation } from '@react-navigation/native';
 
 //Demontra o código de teste de navegação do utilizador e por turno
-const LoginScreen = ({ navigation }) => {
+const LoginScreen = () => {
   const [username, setUsername] = useState('');
   const [Password, setpPassword] = useState('');
   const [ShowPass, setShowPass] = useState(false);
-  const [email, setEmail] = useState('')
-  const navigation = useNavigation()
+  const [email, setEmail] = useState('');
+  const navigation = useNavigation();
 
   const testelog = () => {
     auth()
@@ -18,12 +19,12 @@ const LoginScreen = ({ navigation }) => {
     console.log("User: ", user.email, "entrou.");
     if(username == "Diogo")
     {
-      navigation.replace("Turnos"); 
+      navigation.replace("Turnos");
     }
     else
     {
-      navigation.replace("UserNormal"); 
-        
+      navigation.replace("UserNormal");
+
     }
     })
   }
@@ -53,9 +54,9 @@ const LoginScreen = ({ navigation }) => {
         <Button
         title={ShowPass ? "Hide password" : "Show password"}
         onPress={() => setShowPass(!ShowPass)}
-        
+
         />
-        
+
         <Button
         title="Login"
         onPress={testelog}

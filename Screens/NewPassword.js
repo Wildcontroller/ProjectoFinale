@@ -1,4 +1,3 @@
-NewPassword
 import React, { useState } from 'react'
 import  {View, Text, Image, StyleSheet, ScrollView} from 'react-native'
 import CustomInput from '../../components/CustomInput';
@@ -9,40 +8,41 @@ import NewPassword from '.';
 const NewPassword = () => {
     const [code, setCode] = useState('');
     const [newPassword, setNewPassword] = useState ('');
-    
+
     const onSubmitPressed = () => {
         console.warm('onConfirmPressed');
     }
-    
+
     const onSignInPress = () => {
         console.warm('onSignUpPress');
     };
+
     //Demonstra o design e o estilo das páginas da NewPassword
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
         <View style={StyleSheet.root}>
             <Text style={styles.title}>Reset your password</Text>
-            
-            <CustomInput 
-            placeholder="Code" 
-            value={code} 
+
+            <CustomInput
+            placeholder="Code"
+            value={code}
             setValue={setCode}/>
 
-            <CustomInput 
-            placeholder="Enter your new password" 
-            value={newPassword} 
+            <CustomInput
+            placeholder="Enter your new password"
+            value={newPassword}
             setValue={setNewPassword}/>
 
-            <CustomInput 
-            text="Submit" 
-            onPress={onSubmitPressed} 
+            <CustomInput
+            text="Submit"
+            onPress={onSubmitPressed}
             />
 
-            <CustomButton 
+            <CustomButton
             text="Back to Sign in"
-            onPress={onSignInPress} 
+            onPress={onSignInPress}
             type = "TERTIARY"
-            />            
+            />
         </View>
         </ScrollView>
     );
