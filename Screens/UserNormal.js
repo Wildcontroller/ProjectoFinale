@@ -1,5 +1,5 @@
 import { Button, View, Text, TextInput } from 'react-native';
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 const UserNormal = ({ navigation }) => {
@@ -16,9 +16,10 @@ const UserNormal = ({ navigation }) => {
   function horaFinal(documentSnapshot){return documentSnapshot.get('horaFim');}
   function horaInicial(documentSnapshot){return documentSnapshot.get('horaInicio');}
   function nomeuser(documentSnapshot){return documentSnapshot.get('username')}
-  const [horaInicio, setHoraInicio] = React.useState([]);
-  const [horaFim, setHoraFim] = React.useState([]);
-  const [nome, setnome] = React.useState([]);
+  const [horaInicio, setHoraInicio] = useState([]);
+  const [horaFim, setHoraFim] = useState([]);
+  const [nome, setnome] = useState([]);
+
   const lerNome = () => {
     firestore()
     .collection('TesteId')
@@ -32,7 +33,7 @@ const UserNormal = ({ navigation }) => {
       setnome(nome);
     })
   };
-  
+
   //Testa o ID do utilizador
   const lerFinal = () => {
     firestore()
@@ -65,6 +66,10 @@ const UserNormal = ({ navigation }) => {
     lerFinal()
     lerInicial()
   }, []);
+
+
+
+
 //Utilizar a função logout quando não queremos parar de utilizar a App
   return (
     <View>

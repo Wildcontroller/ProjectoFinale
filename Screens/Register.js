@@ -8,7 +8,7 @@ const RegisterScreen = ({ navigation }) => {
 
   const [pUser, setpUser] = useState('');
   const [pText, setpText] = useState('');
-  const [password, setPassword] = useState('');
+  const [password, setpPassword] = useState('');
 
 //Certifica-se de que que uma conta é criada, testa essa hipótese mas também tem o dever de saber se o email é válido
   const Register = () =>
@@ -25,7 +25,7 @@ const RegisterScreen = ({ navigation }) => {
         email: pText,
       })
       .then(() => {
-        console.log('Acho q deu');       
+        console.log('Acho q deu');
       });
     })
     .catch(error => {
@@ -54,7 +54,7 @@ const RegisterScreen = ({ navigation }) => {
     />
 
     <TextInput
-      value={pPassword}
+      value={password}
       placeholder="Password"
       onChangeText={text => setpPassword(text)}
     />
